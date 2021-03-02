@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hint_product_name">What\'s the name of the item?</string>
+    <string name="hint_store_name">What store is this item from?</string>
+    <string name="hint_frequency">How often will you use this item?</string>
+    <string name="hint_remind_days">When shall we check-in with you about this item?</string>
+    <string name="title_negative_reasons">How about why you might not need this item?</string>
+    <string name="title_positive_reasons">Can you list some reasons why you need this item?</string>
+    <string name="title_categories">What categories does this item belong to?</string>
+    <string name="title_finished">All done!</string>
+
+    <string name="frequency_hardly">Hardly</string>
+    <string name="frequency_not_often">Not very often</string>
+    <string name="frequency_often">Often</string>
+    <string name="frequency_very_often">Very often</string>
+    <string name="frequency_all_the_time">All the time</string>
+
+    <string name="label_completed">Close</string>
+    <string name="message_completed">We\'ll come back to you in a few days before you purchase this item. Until then, take a few moments to reflect on the needs for this purchase.</string>
+
+    <string-array name="category_options">
+        <item>Art</item>
+        <item>Automotive</item>
+        <item>Beauty</item>
+        <item>Books</item>
+        <item>Electronics</item>
+        <item>Gaming</item>
+        <item>Tools</item>
+        <item>Hobbies</item>
+    </string-array>
+
+    <string-array name="frequency_options">
+        <item>@string/frequency_hardly</item>
+        <item>@string/frequency_not_often</item>
+        <item>@string/frequency_often</item>
+        <item>@string/frequency_very_often</item>
+        <item>@string/frequency_all_the_time</item>
+    </string-array>
+
+    <string name="reminder_hardly">tomorrow</string>
+    <string name="reminder_not_often">2 days</string>
+    <string name="reminder_often">3 days</string>
+    <string name="reminder_very_often">5 days</string>
+    <string name="reminder_all_the_time">7 days</string>
+
+    <string-array name="reminder_options">
+        <item>@string/reminder_hardly</item>
+        <item>@string/reminder_not_often</item>
+        <item>@string/reminder_often</item>
+        <item>@string/reminder_very_often</item>
+        <item>@string/reminder_all_the_time</item>
+    </string-array>
+</resources>

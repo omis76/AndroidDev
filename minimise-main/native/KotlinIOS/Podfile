@@ -1,0 +1,52 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '13.0'
+
+use_frameworks!
+
+target 'Authentication' do
+  # Comment the next line if you don't want to use dynamic frameworks
+inherit! :search_paths
+  # Pods for Authentication
+  pod 'SharedAuthentication', :path => '../../shared/SharedAuthentication'
+  
+target 'AuthenticationTests' do
+    # Pods for testing
+    
+  end
+
+end
+
+
+target 'Dashboard' do
+  # Comment the next line if you don't want to use dynamic frameworks
+inherit! :search_paths
+  # Pods for Authentication
+target 'DashboardTests' do
+    # Pods for testing
+    
+  end
+
+end
+
+target 'Creation' do
+  # Comment the next line if you don't want to use dynamic frameworks
+inherit! :search_paths
+  # Pods for Authentication
+
+end
+
+target 'KotlinIOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+inherit! :search_paths
+  # Pods for KotlinIOS
+  pod 'Swinject'
+  target 'KotlinIOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'KotlinIOSUITests' do
+    # Pods for testing
+  end
+
+end

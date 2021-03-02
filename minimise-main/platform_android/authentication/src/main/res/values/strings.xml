@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="existing_account">Already have an account?</string>
+    <string name="no_account">Don\'t have an account yet?</string>
+    <string name="forgotten_your_password">Forgotten your password?</string>
+
+    <string name="title_sign_in">Sign in to your Minimise account</string>
+    <string name="title_sign_up">Sign up for a Minimise account</string>
+
+    <string name="hint_email_address">Email Address</string>
+    <string name="hint_password">Password</string>
+    <string name="error_generic_title">Whoops</string>
+    <string name="error_generic_message">There was a problem performing that request. Please try again!</string>
+    <string name="error_generic_action">OK</string>
+
+    <!-- Forgot password -->
+    <string name="hint_forgot_password">Email Address</string>
+    <string name="title_forgot_password">Reset password</string>
+    <string name="action_forgot_password">Rest Password</string>
+</resources>

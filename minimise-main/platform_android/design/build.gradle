@@ -1,0 +1,20 @@
+import co.joebirch.minimise.buildsrc.*
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+    }
+}
+
+dependencies {
+    implementation Deps.Kotlin.stdLib
+    api Deps.Google.material
+}

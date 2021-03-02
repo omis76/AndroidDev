@@ -1,0 +1,20 @@
+query SignIn(
+    $emailAddress: String!
+    $password: String!
+) {
+  login(userInput: {
+      email: $emailAddress, password: $password
+  }) {
+      ... on ExistingAccountError {
+          message
+          code
+      }
+      ... on AuthenticationError {
+          message
+          code
+      }
+      ... on AuthData {
+          token
+      }
+    }
+}

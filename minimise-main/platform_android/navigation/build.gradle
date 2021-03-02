@@ -1,0 +1,58 @@
+import co.joebirch.minimise.buildsrc.*
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
+    }
+
+    composeOptions {
+        kotlinCompilerVersion Deps.Kotlin.version
+        kotlinCompilerExtensionVersion Deps.Compose.version
+    }
+}
+
+dependencies {
+    implementation project(":platform_android:core")
+    implementation Deps.AndroidX.appCompat
+    implementation Deps.AndroidX.coreKtx
+
+    implementation Deps.Kotlin.stdLib
+
+    implementation Deps.Navigation.compose
+
+    testImplementation Deps.junit
+
+    androidTestImplementation Deps.AndroidX.junit
+    androidTestImplementation Deps.Espresso.core
+
+    androidTestImplementation Deps.Mockito.core
+    androidTestImplementation Deps.Mockito.android
+}

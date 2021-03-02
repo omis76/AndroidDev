@@ -1,0 +1,23 @@
+PODS:
+  - SharedAuthentication (1.0)
+  - Swinject (2.7.1)
+
+DEPENDENCIES:
+  - SharedAuthentication (from `../../shared/SharedAuthentication`)
+  - Swinject
+
+SPEC REPOS:
+  trunk:
+    - Swinject
+
+EXTERNAL SOURCES:
+  SharedAuthentication:
+    :path: "../../shared/SharedAuthentication"
+
+SPEC CHECKSUMS:
+  SharedAuthentication: 51ad694e0ad7c0f6183dbc10364b5cd9c2784f7c
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+
+PODFILE CHECKSUM: 41eba831a847eee1b19a6518dcb18edf64d1f56d
+
+COCOAPODS: 1.9.1

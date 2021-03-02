@@ -1,0 +1,95 @@
+import co.joebirch.minimise.buildsrc.Deps
+import co.joebirch.minimise.buildsrc.Versions
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'kotlin-kapt'
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
+apply plugin: 'kotlin-android-extensions'
+androidExtensions {
+    experimental = true
+}
+
+android {
+    buildFeatures {
+        compose true
+    }
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
+    }
+
+    composeOptions {
+        kotlinCompilerVersion Deps.Kotlin.version
+        kotlinCompilerExtensionVersion Deps.Compose.version
+    }
+}
+
+dependencies {
+    implementation project(":platform_android:core")
+    implementation project(":platform_android:navigation")
+    implementation project(':shared:SharedCommon')
+    implementation project(':shared:SharedDashboard')
+    implementation project(':platform_android:common-ui')
+
+    implementation Deps.Compose.icons
+    implementation Deps.Compose.runtime
+    implementation Deps.Compose.layout
+    implementation Deps.Compose.livedata
+    implementation Deps.Compose.material
+    implementation Deps.Compose.tooling
+    implementation Deps.Compose.foundation
+    implementation Deps.Navigation.compose
+    implementation Deps.Compose.animation
+    implementation Deps.Compose.animationCore
+
+    implementation Deps.AndroidX.appCompat
+    implementation Deps.AndroidX.coreKtx
+
+    implementation Deps.Google.Hilt.hilt
+    implementation Deps.Google.Hilt.viewmodel
+    kapt Deps.Google.Hilt.hiltCompiler
+
+    implementation Deps.Google.material
+
+    implementation Deps.Kotlin.stdLib
+
+    implementation Deps.Lifecycle.common
+    implementation Deps.Lifecycle.viewModelKtx
+
+    testImplementation Deps.junit
+
+    androidTestImplementation Deps.AndroidX.junit
+    androidTestImplementation Deps.Espresso.core
+
+}

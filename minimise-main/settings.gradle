@@ -1,0 +1,19 @@
+include ':platform_android:creation'
+include ':platform_android:common-ui'
+include ':platform_android:dashboard'
+include ':platform_android:design'
+include ':platform_android:core'
+include ':platform_android:onboarding'
+include ':platform_android:navigation'
+include ':platform_android:app'
+include ':platform_android:authentication'
+
+include ':shared:SharedAuthentication'
+include ':shared:SharedCommon'
+include ':shared:SharedCore'
+include ':shared:SharedCreation'
+include ':shared:SharedDashboard'
+
+enableFeaturePreview('GRADLE_METADATA')
+
+rootProject.name='Minimise'

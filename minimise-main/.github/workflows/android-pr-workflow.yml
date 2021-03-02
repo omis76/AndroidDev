@@ -1,0 +1,46 @@
+name: Run checks for Android module changes
+
+on:
+  pull_request:
+    paths:
+      - 'platform_android/**'
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Create UI test commands
+      run: |
+        git fetch origin
+
+        while read line; do
+          tmp=${line#*/}
+          module_name=${tmp%%/*}
+          if [[ ${MODULES} != *"${module_name}"* ]]; then
+            MODULES="${MODULES} ${module_name}"
+          fi
+        done < <(git diff --name-only origin/$GITHUB_BASE_REF)
+        changed_modules=$MODULES
+
+        AVAILABLE_TASKS=$(./gradlew tasks --all)
+        dest="origin/"${{ github.base_ref }}
+        branch="origin/"${{ github.head_ref }}
+        build_commands=""
+        for module in $changed_modules
+        do
+          if [[ ${module} != ".github" && ${module} != "buildSrc" && $AVAILABLE_TASKS == *"platform_android:${module}:connectedCheck"* ]]; then 
+            build_commands="${build_commands} platform_android:${module}:connectedCheck"
+          fi
+        done
+    - name: run tests
+      uses: reactivecircus/android-emulator-runner@v2.11.0
+      with:
+        api-level: 29
+        script: |
+          ./gradlew ${{ env.COMMANDS }}
